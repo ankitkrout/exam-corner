@@ -1,0 +1,698 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Mithla Research Center Khaira Jamui</title>
+  <style>
+    *{margin:0;padding:0;box-sizing:border-box}
+    body{
+      font-family:system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;
+      color:#111827;
+      background:#f3f4f6;
+    }
+    a{text-decoration:none;color:inherit}
+    /* Layout */
+    .container{max-width:1140px;margin:0 auto;padding:0 1rem}
+    section{padding:4rem 0}
+    /* Navbar */
+    header{
+      position:sticky;top:0;z-index:50;
+      background:#111827;color:#f9fafb;
+      box-shadow:0 2px 6px rgba(0,0,0,0.25);
+    }
+    .nav{
+      display:flex;align-items:center;justify-content:space-between;
+      padding:0.75rem 0;
+    }
+    .logo{font-weight:700;font-size:1.15rem;letter-spacing:.03em}
+    .nav-links{display:flex;gap:1.25rem;font-size:.95rem}
+    .nav-links a{opacity:.8}
+    .nav-links a:hover{opacity:1}
+    .nav-cta a{
+      padding:.45rem .9rem;border-radius:999px;font-size:.9rem;
+      background:#f97316;color:#111827;font-weight:600;
+    }
+    /* Hero */
+    .hero{
+      background:radial-gradient(circle at top left,#f97316 0,#111827 55%,#020617 100%);
+      color:#f9fafb;
+    }
+    .hero-inner{
+      display:grid;grid-template-columns:1.4fr 1fr;gap:2.5rem;
+      align-items:center;min-height:75vh;
+    }
+    .badge{
+      display:inline-flex;align-items:center;gap:.4rem;
+      padding:.25rem .7rem;border-radius:999px;
+      background:rgba(15,23,42,0.7);font-size:.75rem;
+      border:1px solid rgba(248,250,252,0.2);
+      margin-bottom:.9rem;
+    }
+    .badge span{font-weight:600;color:#f97316}
+    .hero h1{
+      font-size:2.4rem;line-height:1.15;margin-bottom:.75rem;
+    }
+    .hero h1 span{color:#f97316}
+    .hero p{max-width:32rem;font-size:.98rem;opacity:.9;margin-bottom:1.5rem}
+    .hero-actions{display:flex;flex-wrap:wrap;gap:.75rem;margin-bottom:1.25rem}
+    .btn{
+      padding:.6rem 1.25rem;border-radius:999px;border:1px solid transparent;
+      font-size:.9rem;font-weight:600;cursor:pointer;
+      display:inline-flex;align-items:center;gap:.4rem;
+    }
+    .btn-primary{background:#f97316;color:#111827;border-color:#f97316}
+    .btn-ghost{
+      background:transparent;color:#f9fafb;
+      border-color:rgba(148,163,184,0.7);
+    }
+    .hero-meta{
+      display:flex;flex-wrap:wrap;gap:1.8rem;font-size:.8rem;opacity:.85;
+    }
+    .hero-meta div span{display:block;font-weight:700;font-size:1.1rem;color:#f97316}
+    .hero-aside{
+      background:rgba(15,23,42,0.9);
+      border-radius:1.2rem;padding:1.1rem 1.2rem;
+      border:1px solid rgba(148,163,184,0.4);
+      box-shadow:0 18px 45px rgba(0,0,0,0.55);
+    }
+    .hero-aside h3{font-size:1rem;margin-bottom:.6rem}
+    .stat-grid{
+      display:grid;grid-template-columns:repeat(2,1fr);gap:.75rem;
+      margin-bottom:1rem;font-size:.78rem;
+    }
+    .stat{
+      padding:.7rem .65rem;border-radius:.75rem;
+      background:rgba(15,23,42,0.9);
+      border:1px solid rgba(148,163,184,0.4);
+    }
+    .stat strong{display:block;font-size:.95rem;color:#f97316}
+    .pill-row{display:flex;flex-wrap:wrap;gap:.4rem;margin-bottom:1rem}
+    .pill{
+      font-size:.7rem;padding:.2rem .55rem;border-radius:999px;
+      border:1px solid rgba(148,163,184,0.5);opacity:.95;
+    }
+    .hero-mini{
+      display:flex;justify-content:space-between;align-items:center;
+      font-size:.75rem;border-top:1px dashed rgba(148,163,184,0.6);
+      padding-top:.75rem;margin-top:.4rem;opacity:.9;
+    }
+    /* Section headings */
+    .section-title{
+      font-size:1.6rem;margin-bottom:.4rem;color:#111827;
+    }
+    .section-sub{
+      font-size:.9rem;color:#6b7280;margin-bottom:1.6rem;
+    }
+    /* Class cards */
+    .cards{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:1rem}
+    .card{
+      background:#ffffff;border-radius:1rem;
+      padding:1rem;border:1px solid #e5e7eb;
+      box-shadow:0 8px 20px rgba(15,23,42,0.06);
+    }
+    .card h3{font-size:1.05rem;margin-bottom:.25rem;color:#111827}
+    .chip-row{display:flex;flex-wrap:wrap;gap:.35rem;margin:.35rem 0 .6rem}
+    .chip{
+      font-size:.7rem;padding:.15rem .45rem;border-radius:999px;
+      background:#eff6ff;color:#1d4ed8;
+    }
+    .card p{font-size:.83rem;color:#4b5563;margin-bottom:.55rem}
+    .meta-row{
+      display:flex;justify-content:space-between;align-items:center;
+      font-size:.78rem;color:#6b7280;margin-top:.35rem;
+    }
+    /* Fees and schedule */
+    .grid-2{display:grid;grid-template-columns:1.2fr 1fr;gap:1.5rem}
+    table{
+      width:100%;border-collapse:collapse;font-size:.85rem;
+      background:#ffffff;border-radius:.8rem;overflow:hidden;
+      box-shadow:0 8px 20px rgba(15,23,42,0.06);
+    }
+    thead{background:#111827;color:#f9fafb}
+    th,td{padding:.6rem .75rem;border-bottom:1px solid #e5e7eb;text-align:left}
+    tbody tr:nth-child(even){background:#f9fafb}
+    .tag{
+      display:inline-flex;padding:.18rem .45rem;border-radius:999px;
+      font-size:.7rem;background:#ecfdf3;color:#166534;font-weight:500;
+    }
+    .schedule-note{font-size:.8rem;color:#6b7280;margin-top:.45rem}
+    /* Auth + dashboard */
+    .auth-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:1.2rem}
+    .panel{
+      background:#ffffff;border-radius:1rem;
+      padding:1rem;border:1px solid #e5e7eb;
+      box-shadow:0 8px 24px rgba(15,23,42,0.08);
+    }
+    .panel h3{font-size:1rem;margin-bottom:.35rem}
+    .field{margin-bottom:.55rem}
+    .field label{display:block;font-size:.75rem;color:#4b5563;margin-bottom:.15rem}
+    .field input,.field select{
+      width:100%;padding:.45rem .55rem;border-radius:.55rem;
+      border:1px solid #d1d5db;font-size:.82rem;
+    }
+    .muted{font-size:.75rem;color:#6b7280;margin-top:.3rem}
+    .dashboard-grid{display:grid;grid-template-columns:2fr 1.3fr;gap:1rem}
+    .dash-top{
+      display:flex;justify-content:space-between;align-items:center;
+      margin-bottom:.65rem;
+    }
+    .dash-user h4{font-size:.95rem}
+    .dash-user span{font-size:.78rem;color:#6b7280}
+    .pill-green{
+      display:inline-flex;align-items:center;gap:.25rem;
+      font-size:.7rem;padding:.18rem .5rem;border-radius:999px;
+      background:#dcfce7;color:#166534;font-weight:500;
+    }
+    .dash-columns{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:.75rem;font-size:.8rem}
+    .dash-box{
+      background:#f9fafb;border-radius:.75rem;padding:.6rem;
+      border:1px dashed #e5e7eb;
+    }
+    .dash-box h5{font-size:.8rem;margin-bottom:.25rem;color:#111827}
+    .stat-inline{font-size:.78rem;color:#4b5563;margin-top:.2rem}
+    .stat-inline span{font-weight:600;color:#111827}
+    .side-widget{
+      background:#020617;color:#e5e7eb;border-radius:1rem;
+      padding:.8rem .9rem;display:flex;flex-direction:column;gap:.6rem;
+    }
+    .side-widget h4{font-size:.95rem;margin-bottom:.1rem}
+    .side-row{display:flex;justify-content:space-between;font-size:.78rem}
+    .side-row span:first-child{color:#9ca3af}
+    .badge-orange{
+      font-size:.72rem;padding:.15rem .5rem;border-radius:999px;
+      background:#f97316;color:#111827;font-weight:600;
+    }
+    .progress{
+      height:.4rem;border-radius:999px;background:#111827;margin-top:.25rem;
+      overflow:hidden;
+    }
+    .progress > div{
+      height:100%;width:68%;background:#22c55e;
+    }
+    /* Assignments & exams */
+    .two-col{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:1rem}
+    .list{font-size:.8rem}
+    .list-item{
+      display:flex;justify-content:space-between;align-items:center;
+      padding:.45rem .55rem;border-radius:.55rem;
+      border:1px solid #e5e7eb;background:#f9fafb;margin-bottom:.35rem;
+    }
+    .label-sm{font-size:.7rem;color:#6b7280}
+    .pill-deadline{
+      padding:.15rem .45rem;border-radius:999px;font-size:.7rem;
+      background:#fef3c7;color:#92400e;
+    }
+    .pill-submitted{
+      padding:.15rem .45rem;border-radius:999px;font-size:.7rem;
+      background:#dcfce7;color:#166534;
+    }
+    .pill-live{
+      padding:.15rem .45rem;border-radius:999px;font-size:.7rem;
+      background:#fee2e2;color:#b91c1c;font-weight:600;
+    }
+    /* Responsive */
+    @media(max-width:900px){
+      .hero-inner,.cards,.grid-2,.auth-grid,.dashboard-grid,.two-col{
+        grid-template-columns:1fr;
+      }
+      .hero-inner{min-height:auto;padding:2.5rem 0}
+      .hero{padding-top:1rem}
+      .nav{flex-wrap:wrap;gap:.75rem}
+      .nav-links{flex-wrap:wrap;justify-content:center}
+    }
+  </style>
+</head>
+<body>
+
+  <!-- NAVIGATION -->
+  <header>
+    <div class="container nav">
+      <div class="logo"> Mithla Research Center</div>
+      <nav class="nav-links">
+        <a href="#home">Home</a>
+        <a href="#classes">Classes</a>
+        <a href="#fees">Fees</a>
+        <a href="#schedule">Schedule</a>
+        <a href="#dashboard">Dashboard</a>
+        <a href="#assignments">Assignments</a>
+      </nav>
+      <div class="nav-cta">
+        <a href="#auth">Login / Register</a>
+      </div>
+    </div>
+  </header>
+
+  <!-- HERO / LANDING -->
+  <section id="home" class="hero">
+    <div class="container hero-inner">
+      <div>
+        <div class="badge">
+          <span>New</span> 10th–12th Science Coaching · Jamui
+        </div>
+        <h1>Strong foundation for <span>Board & Competitive</span> exams.</h1>
+        <p>
+          Dedicated coaching for 10th, 11th and 12th with focused support in Science, Physics, Chemistry and Math, daily from 08:00 AM to 05:00 PM.
+        </p>
+        <div class="hero-actions">
+          <a href="#auth" class="btn btn-primary">Enroll as Student</a>
+          <a href="#classes" class="btn btn-ghost">View Classes & Fees</a>
+        </div>
+        <div class="hero-meta">
+          <div>
+            <span>10th</span>
+            Science · Math
+          </div>
+          <div>
+            <span>11th · 12th</span>
+            Physics · Chemistry · Science
+          </div>
+          <div>
+            <span>₹4200–5000</span>
+            Simple, transparent fee plan
+          </div>
+        </div>
+      </div>
+      <aside class="hero-aside">
+        <h3>Today at the Institute</h3>
+        <div class="stat-grid">
+          <div class="stat">
+            <strong>08:00 – 13:00</strong>
+            Morning batch for 10th Science & Math (Mon–Sun)
+          </div>
+          <div class="stat">
+            <strong>14:00 – 17:00</strong>
+            11th & 12th Physics/Chemistry concept sessions
+          </div>
+          <div class="stat">
+            <strong>Daily Practice</strong>
+            Assignments, doubt clearing and concept revision
+          </div>
+          <div class="stat">
+            <strong>Online Exams</strong>
+            Topic-wise and full-length test practice
+          </div>
+        </div>
+        <div class="pill-row">
+          <span class="pill">Attendance tracking</span>
+          <span class="pill">Class routine</span>
+          <span class="pill">Assignments</span>
+          <span class="pill">Online exams</span>
+        </div>
+        <a href="#dashboard" class="btn btn-primary" style="width:100%;justify-content:center;margin-bottom:.35rem;">
+          Preview Student Dashboard
+        </a>
+        <div class="hero-mini">
+          <span>Login to view your attendance, routine, and performance.</span>
+          <span style="font-size:.7rem;color:#9ca3af;">For enrolled students only</span>
+        </div>
+      </aside>
+    </div>
+  </section>
+
+  <!-- CLASS PAGES (10th, 11th, 12th) -->
+  <section id="classes">
+    <div class="container">
+      <h2 class="section-title">Classes · 10th, 11th, 12th</h2>
+      <p class="section-sub">
+        Separate focus tracks for each class with clear subjects, timing, and exam preparation.
+      </p>
+      <div class="cards">
+        <!-- 10th -->
+        <div class="card">
+          <h3>Class 10th · Science & Math</h3>
+          <div class="chip-row">
+            <span class="chip">Science</span>
+            <span class="chip">Math</span>
+            <span class="chip">NCERT foundation</span>
+          </div>
+          <p>
+            Concept-based teaching, regular practice sheets and chapter-wise tests to build a strong base for board exams and higher classes.
+          </p>
+          <p class="label-sm">Key features:</p>
+          <ul style="margin-left:1rem;font-size:.8rem;color:#4b5563;margin-top:.2rem;">
+            <li>Daily doubt-clearing support.</li>
+            <li>Topic-wise assignments and periodic online tests.</li>
+          </ul>
+          <div class="meta-row">
+            <span>Ideal for: Board exam preparation</span>
+            <span>Fee: ₹4200</span>
+          </div>
+        </div>
+        <!-- 11th -->
+        <div class="card">
+          <h3>Class 11th · Science Stream</h3>
+          <div class="chip-row">
+            <span class="chip">Physics</span>
+            <span class="chip">Chemistry</span>
+            <span class="chip">Science</span>
+          </div>
+          <p>
+            Detailed explanation of concepts with numerical practice to support both school exams and early competitive preparation.
+          </p>
+          <p class="label-sm">Key features:</p>
+          <ul style="margin-left:1rem;font-size:.8rem;color:#4b5563;margin-top:.2rem;">
+            <li>Weekly tests for each major topic.</li>
+            <li>Assignment review and feedback in class.</li>
+          </ul>
+          <div class="meta-row">
+            <span>Ideal for: Board + foundation</span>
+            <span>Fee: ₹3000</span>
+          </div>
+        </div>
+        <!-- 12th -->
+        <div class="card">
+          <h3>Class 12th · Science Stream</h3>
+          <div class="chip-row">
+            <span class="chip">Physics</span>
+            <span class="chip">Chemistry</span>
+            <span class="chip">Revision focus</span>
+          </div>
+          <p>
+            Exam-oriented preparation with revision tests, sample paper solving, and frequent online mock exams before boards.
+          </p>
+          <p class="label-sm">Key features:</p>
+          <ul style="margin-left:1rem;font-size:.8rem;color:#4b5563;margin-top:.2rem;">
+            <li>Chapter-wise and full syllabus tests.</li>
+            <li>Detailed analysis and doubt solving after each test.</li>
+          </ul>
+          <div class="meta-row">
+            <span>Ideal for: Board exam scoring</span>
+            <span>Fee: ₹3000</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- FEE STRUCTURE + SCHEDULE -->
+  <section id="fees">
+    <div class="container">
+      <h2 class="section-title">Fee Structure & Schedule</h2>
+      <p class="section-sub">
+        Transparent course fees and a simple daily schedule so parents and students can plan easily.
+      </p>
+      <div class="grid-2">
+        <!-- Fees table -->
+        <div>
+          <table>
+            <thead>
+              <tr>
+                <th>Class</th>
+                <th>Subjects</th>
+                <th>Fee (₹)</th>
+                <th>Note</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>10th</td>
+                <td>Science · Math</td>
+                <td>4200</td>
+                <td><span class="tag">Full course</span></td>
+              </tr>
+              <tr>
+                <td>11th</td>
+                <td>Science / Physics / Chemistry</td>
+                <td>3000</td>
+                <td>Per academic year</td>
+              </tr>
+              <tr>
+                <td>12th</td>
+                <td>Science / Physics / Chemistry</td>
+                <td>3000</td>
+                <td>Per academic year</td>
+              </tr>
+              <tr>
+                <td>11th + 12th</td>
+                <td>Combined Science stream</td>
+                <td>5000</td>
+                <td><span class="tag">Combo discount</span></td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+        <!-- Schedule -->
+        <div id="schedule">
+          <div class="card" style="height:100%;">
+            <h3 style="margin-bottom:.2rem;">Daily Schedule</h3>
+            <p style="font-size:.85rem;color:#6b7280;margin-bottom:.7rem;">
+              Institute timing: 08:00 AM to 05:00 PM (Monday to Sunday).
+            </p>
+            <ul style="font-size:.82rem;color:#4b5563;list-style:disc;margin-left:1.1rem;">
+              <li>08:00 AM – 01:00 PM: Class 10th Science & Math batches.</li>
+              <li>01:00 PM – 02:00 PM: Break and doubt clearing.</li>
+              <li>02:00 PM – 05:00 PM: Class 11th & 12th Science, Physics, Chemistry.</li>
+            </ul>
+            <p class="schedule-note">
+              Individual batch timing is shared on the student dashboard and can be updated anytime by the institute.
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- LOGIN / REGISTER + SIMPLE PAGES -->
+  <section id="auth">
+    <div class="container">
+      <h2 class="section-title">Login & Registration</h2>
+      <p class="section-sub">
+        Students can register once and then log in to view attendance, class routine, assignments, and online exams.
+      </p>
+      <div class="auth-grid">
+        <!-- Login -->
+        <div class="panel">
+          <h3>Student Login</h3>
+          <form>
+            <div class="field">
+              <label for="login-id">Student ID / Mobile</label>
+              <input id="login-id" type="text" placeholder="Enter registered mobile or student ID" />
+            </div>
+            <div class="field">
+              <label for="login-pass">Password</label>
+              <input id="login-pass" type="password" placeholder="Enter password" />
+            </div>
+            <button type="button" class="btn btn-primary" style="margin-top:.4rem;">Login</button>
+            <p class="muted">Forgot password? Contact institute office for reset.</p>
+          </form>
+        </div>
+        <!-- Register -->
+        <div class="panel">
+          <h3>New Student Registration</h3>
+          <form>
+            <div class="field">
+              <label for="name">Full Name</label>
+              <input id="name" type="text" placeholder="Student full name" />
+            </div>
+            <div class="field">
+              <label for="Email"> Email</label>
+              <input id="Email" type="text" placeholder="Enter Email">
+
+            </div>
+            <div class="field">
+              <label for="class">Class</label>
+              <select id="class">
+                <option>10th</option>
+                <option>11th</option>
+                <option>12th</option>
+                <option>11th + 12th</option>
+              </select>
+            </div>
+            <div class="field">
+              <label for="phone">Mobile Number</label>
+              <input id="phone" type="tel" placeholder="Parent / student mobile" />
+            </div>
+            <div class="field">
+              <label for="phone">mobile Number</label>
+              <input id="phonr" type="tel" placeholder="ulternat mobile no" />
+
+            </div>
+            <div class="field">
+              <label for="address">Address</label>
+              <input id="address" type="text" placeholder="Full address" />
+            </div>
+            <button type="button" class="btn btn-primary" style="margin-top:.4rem;">Submit Registration</button>
+            <p class="muted">After verification, login credentials will be shared by the institute.</p>
+          </form>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- STUDENT DASHBOARD MOCKUP -->
+  <section id="dashboard">
+    <div class="container">
+      <h2 class="section-title">Student Dashboard (Mockup)</h2>
+      <p class="section-sub">
+        A sample dashboard layout showing attendance, class routine, upcoming assignments and online exams.
+      </p>
+      <div class="dashboard-grid">
+        <!-- Main dashboard -->
+        <div class="panel">
+          <div class="dash-top">
+            <div class="dash-user">
+              <h4>Welcome, Student Name</h4>
+              <span>Class 11th · Science | Roll 23</span>
+            </div>
+            <div>
+              <span class="pill-green">Attendance: 92%</span>
+            </div>
+          </div>
+          <div class="dash-columns">
+            <div class="dash-box">
+              <h5>Today’s Classes</h5>
+              <p>02:00 PM – Physics (Laws of Motion)</p>
+              <p>03:30 PM – Chemistry (Chemical Bonding)</p>
+              <p class="stat-inline"><span>Room:</span> 01 · 02</p>
+            </div>
+            <div class="dash-box">
+              <h5>Upcoming Assessment</h5>
+              <p>Physics Unit Test – Saturday, 10:00 AM</p>
+              <p class="stat-inline"><span>Syllabus:</span> Kinematics, Laws of Motion</p>
+            </div>
+          </div>
+          <div class="dash-columns" style="margin-top:.6rem;">
+            <div class="dash-box">
+              <h5>Attendance Summary</h5>
+              <p class="stat-inline"><span>Physics:</span> 24 / 26 classes</p>
+              <p class="stat-inline"><span>Chemistry:</span> 23 / 26 classes</p>
+              <p class="stat-inline"><span>Overall:</span> 92%</p>
+            </div>
+            <div class="dash-box">
+              <h5>Routine Highlights</h5>
+              <p>Mon–Fri: 02:00–05:00 PM · Science</p>
+              <p>Sat: Weekly test & doubt class</p>
+              <p class="stat-inline"><span>Next holiday:</span> As per notice</p>
+            </div>
+          </div>
+        </div>
+        <!-- Side widgets -->
+        <aside class="side-widget">
+          <div>
+            <h4>Performance Snapshot</h4>
+            <div class="side-row">
+              <span>Average score</span>
+              <span>78%</span>
+            </div>
+            <div class="side-row">
+              <span>Last test</span>
+              <span>Physics Unit-2 · 84%</span>
+            </div>
+            <div class="progress"><div></div></div>
+          </div>
+          <div>
+            <div class="side-row">
+              <span>Next online exam</span>
+              <span class="badge-orange">Live in 2 days</span>
+            </div>
+            <p style="font-size:.78rem;">
+              Chemistry – Chemical Equilibrium · 30 questions · 45 minutes.
+            </p>
+          </div>
+          <div>
+            <div class="side-row">
+              <span>Assignments pending</span>
+              <span>2 remaining</span>
+            </div>
+            <p style="font-size:.78rem;">
+              1 × Physics numericals, 1 × Chemistry NCERT exercise.
+            </p>
+          </div>
+        </aside>
+      </div>
+    </div>
+  </section>
+
+  <!-- ASSIGNMENTS & ONLINE EXAMS -->
+  <section id="assignments">
+    <div class="container">
+      <h2 class="section-title">Assignments & Online Exams</h2>
+      <p class="section-sub">
+        Separate sections for students to track daily homework, upload answers, and attempt online exams.
+      </p>
+      <div class="two-col">
+        <!-- Assignments -->
+        <div class="panel">
+          <h3>Assignments</h3>
+          <div class="list">
+            <div class="list-item">
+              <div>
+                <strong>Physics – Laws of Motion Sheet-03</strong><br />
+                <span class="label-sm">Posted: 15 Dec · 15 questions (numericals)</span>
+              </div>
+              <div style="text-align:right;">
+                <div class="pill-deadline">Due: 20 Dec</div>
+                <div class="label-sm">Status: Not submitted</div>
+              </div>
+            </div>
+            <div class="list-item">
+              <div>
+                <strong>Chemistry – Chemical Bonding NCERT Ex.</strong><br />
+                <span class="label-sm">Posted: 14 Dec · NCERT back questions</span>
+              </div>
+              <div style="text-align:right;">
+                <div class="pill-submitted">Submitted</div>
+                <div class="label-sm">Marks: Pending check</div>
+              </div>
+            </div>
+            <div class="list-item">
+              <div>
+                <strong>10th – Science Chapter 5 Worksheet</strong><br />
+                <span class="label-sm">Posted: 13 Dec · Short and long questions</span>
+              </div>
+              <div style="text-align:right;">
+                <div class="pill-deadline">Due: 18 Dec</div>
+                <div class="label-sm">Status: In progress</div>
+              </div>
+            </div>
+          </div>
+          <p class="muted">
+            Students can view details, download PDFs, and upload photos/PDF of completed work from their login.
+          </p>
+        </div>
+        <!-- Online exams -->
+        <div class="panel">
+          <h3>Online Exams</h3>
+          <div class="list">
+            <div class="list-item">
+              <div>
+                <strong>Physics Unit Test – Kinematics</strong><br />
+                <span class="label-sm">30 MCQs · 45 minutes · Full syllabus of Unit 1</span>
+              </div>
+              <div style="text-align:right;">
+                <div class="pill-live">Live now</div>
+                <div class="label-sm">End: Today, 8 PM</div>
+              </div>
+            </div>
+            <div class="list-item">
+              <div>
+                <strong>Chemistry – Periodic Table Quiz</strong><br />
+                <span class="label-sm">20 MCQs · 25 minutes · Chapter-wise test</span>
+              </div>
+              <div style="text-align:right;">
+                <div class="pill-deadline">Opens: 19 Dec</div>
+                <div class="label-sm">Mode: Online only</div>
+              </div>
+            </div>
+            <div class="list-item">
+              <div>
+                <strong>10th Science – Half Syllabus Mock</strong><br />
+                <span class="label-sm">40 questions · 60 minutes · Objective + short answers</span>
+              </div>
+              <div style="text-align:right;">
+                <div class="pill-deadline">Scheduled</div>
+                <div class="label-sm">Date: 22 Dec</div>
+              </div>
+            </div>
+          </div>
+          <p class="muted">
+            Exam results and analytics can appear in the dashboard under performance once students submit their tests.
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+</body>
+</html>
